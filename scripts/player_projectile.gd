@@ -24,4 +24,4 @@ func _on_player_projectile_area_enter(area):
 	if area.has_method("destroy"):
 		area.destroy(self)
 	
-	destroy()
+	destroy(self)
