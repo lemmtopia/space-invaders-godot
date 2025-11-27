@@ -8,6 +8,7 @@ const MIN_POS_Y = -LENGTH
 var move = Vector2(0, -1)
 
 func _ready():
+	add_to_group("player_projectile")
 	set_process(true)
 
 func _process(delta):
