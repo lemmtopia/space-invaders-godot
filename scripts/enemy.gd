@@ -1,6 +1,7 @@
+tool
 extends Area2D
 
-export(int, "A", "B", "C") var type = 0
+export(int, "A", "B", "C") var type = 0 setget set_type
 
 var score = 0
 
@@ -20,5 +21,14 @@ var attribute_array = [
 ]
 
 func _ready():
+	pass
+
+func _draw():
 	get_node("sprite").set_texture(attribute_array[type].texture)
 	score = attribute_array[type].score
+
+func set_type(value):
+	type = value
+	
+	if is_inside_tree() and get_tree().is_editor_hint():
+		update()
