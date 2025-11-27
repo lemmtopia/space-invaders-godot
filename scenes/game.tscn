@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Ship-sheet.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemy_projectile.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -189,5 +190,9 @@ type = 2
 
 transform/pos = Vector2( 144, 48 )
 type = 2
+
+[node name="enemy_projectile" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 171, 41 )
 
 
