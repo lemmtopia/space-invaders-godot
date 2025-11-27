@@ -200,8 +200,17 @@ type = 2
 process_mode = 1
 wait_time = 1.0
 one_shot = false
-autostart = true
+autostart = false
+
+[node name="timer_move" type="Timer" parent="enemy_group"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 [connection signal="timeout" from="enemy_group/timer_shot" to="enemy_group" method="_on_timer_timeout"]
+
+[connection signal="timeout" from="enemy_group/timer_move" to="enemy_group" method="_on_timer_move_timeout"]
 
 
