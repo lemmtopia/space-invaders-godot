@@ -18,8 +18,8 @@ func _process(delta):
 	# |erando meu dir no início desse frame.
 	move = 0
 	
-	var left = Input.is_action_pressed("ui_left")
-	var right = Input.is_action_pressed("ui_right")
+	var left = Input.is_action_pressed("space_left")
+	var right = Input.is_action_pressed("space_right")
 	
 	# Se nenhum,  move =  0.
 	# Se right,   move =  1;
