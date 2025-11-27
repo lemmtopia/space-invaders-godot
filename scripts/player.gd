@@ -1,9 +1,9 @@
 extends Area2D
 
 const VEL = 80
-const PRE_PROJECTILE = preload("res://scenes/player_projectile.tscn")
+const PRE_PLAYER_PROJECTILE = preload("res://scenes/player_projectile.tscn")
 
-const MAX_PROJECTILES = 1
+const MAX_PLAYER_PROJECTILES = 1
 
 const LENGTH = 7
 const SCREEN_W = 180
@@ -51,9 +51,12 @@ func _process(delta):
 	translate(Vector2(1, 0) * VEL * move * delta)
 	
 	var projectiles = get_tree().get_nodes_in_group("player_projectile")
-	if fire and not prev_fire and projectiles.size() < MAX_PROJECTILES:
-		var projectile = PRE_PROJECTILE.instance()
+	if fire and not prev_fire and projectiles.size() < MAX_PLAYER_PROJECTILES:
+		var projectile = PRE_PLAYER_PROJECTILE.instance()
 		get_parent().add_child(projectile)
 		projectile.set_global_pos(get_global_pos())
 	
 	prev_fire = fire
+
+func destroy(caller_node):
+	queue_free()

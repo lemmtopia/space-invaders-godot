@@ -35,6 +35,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision/layers = 2
 script/script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -59,5 +60,7 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "default"
+
+[connection signal="area_enter" from="." to="." method="_on_enemy_projectile_area_enter"]
 
 
