@@ -14,6 +14,11 @@ const MAX_POS_X = SCREEN_W - LENGTH
 var move = 0
 var prev_fire = false
 
+var alive = true
+
+signal destroyed
+signal respawned
+
 func _ready():
 	# Called every time the node is added to the scene.
 	set_process(true)
@@ -59,4 +64,14 @@ func _process(delta):
 	prev_fire = fire
 
 func destroy(caller_node):
-	queue_free()
+	if alive:
+		alive = false
+		get_node("anim").play("die")
+		set_process(false)
+		emit_signal("destroyed")
+		
+		yield(get_node("anim"), "finished")
+		emit_signal("respawned")
+		set_process(true)
+		get_node("sprite").set_frame(0)
+		alive = true

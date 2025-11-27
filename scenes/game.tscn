@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
@@ -17,6 +17,23 @@ points = Vector2Array( -2, -1, 0, -3, 2, -1 )
 
 custom_solver_bias = 0.0
 points = Vector2Array( -2, -1, 2, -1, 7, 0, 7, 4, -7, 4, -7, 0 )
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "die"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 1, 2, 1, 2 ]
+}
 
 [node name="game" type="Node"]
 
@@ -50,9 +67,19 @@ polygon = Vector2Array( 0, -3, 2, -1, 7, 0, 7, 4, -7, 4, -7, 0, -2, -1 )
 shape_range = Vector2( 0, 1 )
 trigger = false
 
+[node name="anim" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/die = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
 [node name="enemy_group" type="Node2D" parent="."]
 
-editor/display_folded = true
 script/script = ExtResource( 4 )
 
 [node name="enemies" type="Node2D" parent="enemy_group"]
@@ -215,6 +242,13 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[node name="timer_enemy_ship" type="Timer" parent="enemy_group"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
 [node name="shields" type="Node2D" parent="."]
 
 transform/pos = Vector2( 32, 252 )
@@ -258,5 +292,7 @@ max_lines_visible = -1
 [connection signal="timeout" from="enemy_group/timer_shot" to="enemy_group" method="_on_timer_timeout"]
 
 [connection signal="timeout" from="enemy_group/timer_move" to="enemy_group" method="_on_timer_move_timeout"]
+
+[connection signal="timeout" from="enemy_group/timer_enemy_ship" to="enemy_group" method="_on_timer_enemy_ship_timeout"]
 
 

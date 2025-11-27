@@ -2,6 +2,7 @@ extends Node2D
 
 const PRE_ENEMY_PROJECTILE = preload("res://scenes/enemy_projectile.tscn")
 const PRE_ENEMY_EXPLOSION = preload("res://scenes/enemy_explosion.tscn")
+const PRE_ENEMY_SHIP = preload("res://scenes/enemy_ship.tscn")
 
 const MIN_SHOT_WAIT_TIME = 0.6
 const MAX_SHOT_WAIT_TIME = 1.8
@@ -20,8 +21,7 @@ var num_enemies_start = 0
 signal enemy_destroyed(enemy)
 
 func _ready():
-	get_node("timer_shot").start()
-	get_node("timer_move").start()
+	start_all()
 	
 	for enemy in get_node("enemies").get_children():
 		enemy.connect("destroyed", self, "on_enemy_destroyed")
@@ -70,3 +70,22 @@ func on_enemy_destroyed(enemy):
 	var explosion = PRE_ENEMY_EXPLOSION.instance()
 	get_parent().add_child(explosion)
 	explosion.set_global_pos(enemy.get_global_pos())
+
+
+func _on_timer_enemy_ship_timeout():
+	get_node("timer_enemy_ship").set_wait_time(rand_range(4, 8))
+	get_node("timer_enemy_ship").start()
+	
+	var enemy_ship = PRE_ENEMY_SHIP.instance()
+	enemy_ship.connect("destroyed", self, "on_enemy_destroyed")
+	get_parent().add_child(enemy_ship)
+
+func start_all():
+	get_node("timer_shot").start()
+	get_node("timer_move").start()
+	get_node("timer_enemy_ship").start()
+
+func stop_all():
+	get_node("timer_shot").stop()
+	get_node("timer_move").stop()
+	get_node("timer_enemy_ship").stop()
