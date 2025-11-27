@@ -32,3 +32,6 @@ func set_type(value):
 	
 	if is_inside_tree() and get_tree().is_editor_hint():
 		update()
+
+func destroy(caller_node):
+	queue_free()

@@ -1,6 +1,6 @@
 extends Area2D
 
-const VEL = 250
+const VEL = 280
 
 const LENGTH = 5
 const MIN_POS_Y = -LENGTH
@@ -16,3 +16,12 @@ func _process(delta):
 	
 	if get_global_pos().y < MIN_POS_Y:
 		queue_free()
+
+func destroy():
+	queue_free()
+
+func _on_player_projectile_area_enter(area):
+	if area.has_method("destroy"):
+		area.destroy(self)
+	
+	destroy()

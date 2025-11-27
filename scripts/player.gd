@@ -1,6 +1,6 @@
 extends Area2D
 
-const VEL = 100
+const VEL = 80
 const PRE_PROJECTILE = preload("res://scenes/player_projectile.tscn")
 
 const MAX_PROJECTILES = 1
