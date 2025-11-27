@@ -13,7 +13,6 @@ var move = 0
 func _ready():
 	# Called every time the node is added to the scene.
 	set_process(true)
-	pass
 
 func _process(delta):
 	# |erando meu dir no início desse frame.
