@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Ship-sheet.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -42,5 +43,19 @@ build_mode = 0
 polygon = Vector2Array( 0, -3, 2, -1, 7, 0, 7, 4, -7, 4, -7, 0, -2, -1 )
 shape_range = Vector2( 0, 1 )
 trigger = false
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 43, 57 )
+
+[node name="enemy 2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 78, 59 )
+type = 1
+
+[node name="enemy 3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 121, 59 )
+type = 2
 
 
