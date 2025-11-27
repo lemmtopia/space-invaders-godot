@@ -17,6 +17,8 @@ const MAX_ENEMY_POS_X = 160
 var move = 1
 var num_enemies_start = 0
 
+signal enemy_destroyed(enemy)
+
 func _ready():
 	get_node("timer_shot").start()
 	get_node("timer_move").start()
@@ -63,6 +65,8 @@ func _on_timer_move_timeout():
 		translate(Vector2(move, 0) * VEL_X)
 
 func on_enemy_destroyed(enemy):
+	emit_signal("enemy_destroyed", enemy)
+	
 	var explosion = PRE_ENEMY_EXPLOSION.instance()
 	get_parent().add_child(explosion)
 	explosion.set_global_pos(enemy.get_global_pos())
