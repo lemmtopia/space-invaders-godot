@@ -44,18 +44,150 @@ polygon = Vector2Array( 0, -3, 2, -1, 7, 0, 7, 4, -7, 4, -7, 0, -2, -1 )
 shape_range = Vector2( 0, 1 )
 trigger = false
 
-[node name="enemy" parent="." instance=ExtResource( 3 )]
+[node name="enemy_group" type="Node2D" parent="."]
 
-transform/pos = Vector2( 43, 57 )
+[node name="enemy" parent="enemy_group" instance=ExtResource( 3 )]
 
-[node name="enemy 2" parent="." instance=ExtResource( 3 )]
+transform/pos = Vector2( 32, 96 )
 
-transform/pos = Vector2( 81, 59 )
+[node name="enemy1" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 48, 96 )
+
+[node name="enemy22" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 32, 120 )
+
+[node name="enemy23" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 48, 120 )
+
+[node name="enemy24" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 64, 120 )
+
+[node name="enemy25" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 120 )
+
+[node name="enemy26" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 96, 120 )
+
+[node name="enemy27" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 112, 120 )
+
+[node name="enemy28" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 128, 120 )
+
+[node name="enemy29" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 144, 120 )
+
+[node name="enemy2" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 64, 96 )
+
+[node name="enemy3" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 96 )
+
+[node name="enemy4" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 96, 96 )
+
+[node name="enemy5" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 112, 96 )
+
+[node name="enemy6" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 128, 96 )
+
+[node name="enemy7" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 144, 96 )
+
+[node name="enemy 2" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 32, 72 )
 type = 1
 
-[node name="enemy 3" parent="." instance=ExtResource( 3 )]
+[node name="enemy15" parent="enemy_group" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 121, 59 )
+transform/pos = Vector2( 48, 72 )
+type = 1
+
+[node name="enemy16" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 64, 72 )
+type = 1
+
+[node name="enemy17" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 72 )
+type = 1
+
+[node name="enemy18" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 96, 72 )
+type = 1
+
+[node name="enemy19" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 112, 72 )
+type = 1
+
+[node name="enemy20" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 128, 72 )
+type = 1
+
+[node name="enemy21" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 144, 72 )
+type = 1
+
+[node name="enemy 3" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 32, 48 )
+type = 2
+
+[node name="enemy8" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 48, 48 )
+type = 2
+
+[node name="enemy9" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 64, 48 )
+type = 2
+
+[node name="enemy10" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 48 )
+type = 2
+
+[node name="enemy11" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 96, 48 )
+type = 2
+
+[node name="enemy12" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 112, 48 )
+type = 2
+
+[node name="enemy13" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 128, 48 )
+type = 2
+
+[node name="enemy14" parent="enemy_group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 144, 48 )
 type = 2
 
 
