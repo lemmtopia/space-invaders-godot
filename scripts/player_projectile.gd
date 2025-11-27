@@ -17,7 +17,7 @@ func _process(delta):
 	if get_global_pos().y < MIN_POS_Y:
 		queue_free()
 
-func destroy():
+func destroy(caller_node):
 	queue_free()
 
 func _on_player_projectile_area_enter(area):

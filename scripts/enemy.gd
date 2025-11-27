@@ -4,6 +4,7 @@ extends Area2D
 export(int, "A", "B", "C") var type = 0 setget set_type
 
 var score = 0
+var frame = 0
 
 var attribute_array = [
 	{
@@ -35,3 +36,11 @@ func set_type(value):
 
 func destroy(caller_node):
 	queue_free()
+
+func next_frame():
+	if frame == 0:
+		frame = 1
+	else:
+		frame = 0
+	
+	get_node("sprite").set_frame(frame)
