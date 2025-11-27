@@ -1,6 +1,7 @@
 extends Node2D
 
 const PRE_ENEMY_PROJECTILE = preload("res://scenes/enemy_projectile.tscn")
+const PRE_ENEMY_EXPLOSION = preload("res://scenes/enemy_explosion.tscn")
 
 const MIN_SHOT_WAIT_TIME = 0.6
 const MAX_SHOT_WAIT_TIME = 1.8
@@ -19,6 +20,9 @@ var num_enemies_start = 0
 func _ready():
 	get_node("timer_shot").start()
 	get_node("timer_move").start()
+	
+	for enemy in get_node("enemies").get_children():
+		enemy.connect("destroyed", self, "on_enemy_destroyed")
 	
 	num_enemies_start = get_node("enemies").get_child_count()
 
@@ -57,3 +61,8 @@ func _on_timer_move_timeout():
 		translate(Vector2(0, 1) * VEL_Y)
 	else:
 		translate(Vector2(move, 0) * VEL_X)
+
+func on_enemy_destroyed(enemy):
+	var explosion = PRE_ENEMY_EXPLOSION.instance()
+	get_parent().add_child(explosion)
+	explosion.set_global_pos(enemy.get_global_pos())

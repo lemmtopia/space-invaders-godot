@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Ship-sheet.png" type="Texture" id=2]
 [ext_resource path="res://scripts/enemy_group.gd" type="Script" id=3]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/shield.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -47,6 +48,7 @@ trigger = false
 
 [node name="enemy_group" type="Node2D" parent="."]
 
+editor/display_folded = true
 script/script = ExtResource( 3 )
 
 [node name="enemies" type="Node2D" parent="enemy_group"]
@@ -208,6 +210,26 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="shields" type="Node2D" parent="."]
+
+transform/pos = Vector2( 32, 252 )
+
+[node name="shield" parent="shields" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 4, 0 )
+
+[node name="shield1" parent="shields" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 40, 0 )
+
+[node name="shield2" parent="shields" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 76, 0 )
+
+[node name="shield3" parent="shields" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 112, 0 )
 
 [connection signal="timeout" from="enemy_group/timer_shot" to="enemy_group" method="_on_timer_timeout"]
 

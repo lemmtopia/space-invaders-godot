@@ -6,6 +6,8 @@ export(int, "A", "B", "C") var type = 0 setget set_type
 var score = 0
 var frame = 0
 
+signal destroyed(inst)
+
 var attribute_array = [
 	{
 		texture = preload("res://sprites/InvaderA_sheet.png"),
@@ -35,6 +37,7 @@ func set_type(value):
 		update()
 
 func destroy(caller_node):
+	emit_signal("destroyed", self)
 	queue_free()
 
 func next_frame():
