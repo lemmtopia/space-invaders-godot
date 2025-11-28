@@ -30,11 +30,12 @@ func _ready():
 
 func shoot():
 	var num_enemies = get_node("enemies").get_child_count()
-	var enemy = get_node("enemies").get_child(randi() % num_enemies)
-	
-	var projectile = PRE_ENEMY_PROJECTILE.instance()
-	get_parent().add_child(projectile)
-	projectile.set_global_pos(enemy.get_global_pos())
+	if num_enemies > 0:
+		var enemy = get_node("enemies").get_child(randi() % num_enemies)
+		
+		var projectile = PRE_ENEMY_PROJECTILE.instance()
+		get_parent().add_child(projectile)
+		projectile.set_global_pos(enemy.get_global_pos())
 
 func _on_timer_timeout():
 	get_node("timer_shot").set_wait_time(rand_range(MIN_SHOT_WAIT_TIME, MAX_SHOT_WAIT_TIME))
